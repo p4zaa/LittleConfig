@@ -1,0 +1,8 @@
+_config_id_: GGEZ
+_version_id_: GGEZ123
+
+defaults:
+  - labels: test1/labels
+  - memory_replay: test1-replay-path
+
+version: test1_1

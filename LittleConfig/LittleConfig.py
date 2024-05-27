@@ -47,12 +47,24 @@ class LittleConfig:
             del config['defaults']
         return config
 
+    def _apply_overrides(self, config, overrides):
+        config.update(overrides)
+        return config
+
+    def _initialize_config(self, config):
+        if self.overrides:
+            config = self._apply_overrides(config, self.overrides)
+        if '_id' not in config:
+            config =  self._apply_overrides(config, {'_id': 'LITTLEBOBO'})
+        return config
+
     @cached_property
     def config(self):
         yaml_path = Path(f'{self.initial_path}/{self.config_name}.yaml')
         config_dict = self._load_yaml(yaml_path)
         config_dict = self._load_defaults(config_dict)
-        if self.overrides:
-            config_dict.update(self.overrides)
+        config_dict = self._initialize_config(config_dict)
+        #if self.overrides:
+        #    config_dict = self._apply_overrides(config_dict, self.overrides)
         self._config = Config(config_dict)
         return self._config

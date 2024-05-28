@@ -1,0 +1,15 @@
+_version_: prefix_1.0_suffix
+
+defaults:
+  - model: wangchanberta/config
+  - labels: test1/labels
+
+datasets:
+  train_paths: 
+    - LittleConfig\test\memory_buffer\test1\train-datasets\file1.csv
+    - LittleConfig\test\memory_buffer\test1\train-datasets\file2.csv
+    - LittleConfig\test\memory_buffer\test1\train-datasets\file3.csv
+  validation_paths: 
+  test_paths: 
+    - LittleConfig\test\memory_buffer\test1\test-datasets\file1.csv
+    - LittleConfig\test\memory_buffer\test1\test-datasets\file2.csv

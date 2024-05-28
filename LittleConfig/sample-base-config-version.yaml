@@ -1,6 +1,5 @@
 defaults:
   - model: wangchanberta/config
-  - parameters: 
   - labels: test1/labels
   - memory_replay: test1-replay-path
 

@@ -47,11 +47,12 @@ class Config:
             raise ValueError("update() argument must be a dict or Config instance")
 
 class LittleConfig:
-    def __init__(self, initial_path=None, config_path=None, config_name=None, overrides=None) -> None:
+    def __init__(self, initial_path=None, config_path=None, config_name=None, overrides=None, partial_overrides=None) -> None:
         self.initial_path = Path(initial_path) if initial_path else Path.cwd()
         self.config_path = Path(config_path) if config_path else Path.cwd()
         self.config_name = config_name
         self.overrides = overrides
+        self.partial_overrides = partial_overrides
         self._config = None
 
     def _wrap_in_config(self, obj):
@@ -77,12 +78,23 @@ class LittleConfig:
     def _apply_overrides(self, config, overrides):
         config.update(overrides)
         return config
+    
+    def _apply_partial_overrides(self, config, partial_overrides):
+        for key, value in partial_overrides.items():
+            if key in config:
+                if isinstance(value, dict) and isinstance(config[key], Config):
+                    self._apply_partial_overrides(config[key], value)
+                else:
+                    config[key] = self._wrap_in_config(value)
+            else:
+                config[key] = self._wrap_in_config(value)
+        return config
 
     def _initialize_config(self, config):
         if self.overrides:
             config = self._apply_overrides(config, self.overrides)
-        if '_id_' not in config:
-            config =  self._apply_overrides(config, {'_id_': 'LITTLEBOBO'})
+        if self.partial_overrides:
+            config = self._apply_partial_overrides(config, self.partial_overrides)
         return config
 
     @cached_property

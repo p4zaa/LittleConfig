@@ -3,6 +3,7 @@ defaults:
   - parameters: 
   - labels: test1/labels
   - memory_replay: test1-replay-path
+  - parameters: test-parameters
 
 _version_: 0.0
 
@@ -21,15 +22,3 @@ method: memory-replay # memory-replay, non-memory-replay
 
 data_config:
   feature_columns: text
-
-training_config:
-  epochs: 10
-  patience: 3
-  batch_size: 64
-  val_size: 0.2
-  test_size: 0.1
-  lr: 2e-5
-  weight_decay_rate_0: 0.01
-  weight_decay_rate_1: 0.0
-  max_length: 200
-  random_state: 888

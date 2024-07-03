@@ -1,30 +1,33 @@
-_version_: prefix_0.0_suffix
+_version_: prefix_0.0
+data_config:
+  feature_columns: text
 datasets:
   test_paths:
-  - "LittleConfig\test\\memory_buffer\test1\test-datasets\file1.csv"
-  - "LittleConfig\test\\memory_buffer\test1\test-datasets\file2.csv"
+  - LittleConfig/test/memory_buffer/test1/test-datasets/file1.csv
+  - LittleConfig/test/memory_buffer/test1/test-datasets/file2.csv
   train_paths:
-  - "LittleConfig\test\\memory_buffer\test1\train-datasets\file1.csv"
-  - "LittleConfig\test\\memory_buffer\test1\train-datasets\file2.csv"
-  - "LittleConfig\test\\memory_buffer\test1\train-datasets\file3.csv"
+  - LittleConfig/test/memory_buffer/test1/train-datasets/file1.csv
+  - LittleConfig/test/memory_buffer/test1/train-datasets/file2.csv
+  - LittleConfig/test/memory_buffer/test1/train-datasets/file3.csv
   validation_paths: null
 defaults:
-- model: !!python/object:LittleConfig.Config
-    _config_dict:
-      attention_masks: true
-      input_ids: true
-      model_name: airesearch/wangchanberta-base-att-spm-uncased
-      token_type: false
-      tokenizer: !!python/object:LittleConfig.Config
-        _config_dict:
-          _class: AutoTokenizer
-          pretrain: airesearch/wangchanberta-base-att-spm-uncased
-- label:
-  - label1
-  - label2
-  - label3
-  - label4
-  - label5
-  - label6
-  - label7
-  - label8
+- model: wangchanberta/config
+- parameters: null
+- labels: test1/labels
+- memory_replay: test1-replay-path
+method: none-memory-replay
+mode: train
+project_config:
+  name: ml-test1
+  path: C:/Users/patom/OneDrive/Documents/Repo/LittleConfig/LittleConfig/test/projects
+training_config:
+  batch_size: 64
+  epochs: 10
+  lr: 2e-5
+  max_length: 200
+  patience: 3
+  random_state: 888
+  test_size: 0.1
+  val_size: 0.2
+  weight_decay_rate_0: 0.01
+  weight_decay_rate_1: 0.0

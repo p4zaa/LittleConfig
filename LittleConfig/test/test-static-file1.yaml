@@ -4,11 +4,12 @@ defaults:
   - labels: test1/labels
   - memory_replay: test1-replay-path
 
-_version_: 0.0
+_version_: null
+_preset_id_: null
 
 versioning_config:
   prefix: prefix_
-  suffix: _suffix
+  version_number: 0.0
   backup_version_config: True
   version_config_path: C:/Users/patom/OneDrive/Documents/Repo/LittleConfig/LittleConfig/test/version-configs
 

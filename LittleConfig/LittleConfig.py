@@ -45,6 +45,13 @@ class Config:
             self._config_dict.update(other._config_dict)
         else:
             raise ValueError("update() argument must be a dict or Config instance")
+        
+    def to_dict(self):
+        def unwrap(obj):
+            if isinstance(obj, Config):
+                return {k: unwrap(v) for k, v in obj.items()}
+            return obj
+        return unwrap(self._config_dict)
 
 class LittleConfig:
     def __init__(self, initial_path=None, config_path=None, config_name=None, overrides=None, partial_overrides=None) -> None:
@@ -105,3 +112,6 @@ class LittleConfig:
         config_dict = self._initialize_config(config_dict)
         self._config = Config(config_dict)
         return self._config
+    
+    def to_dict(self):
+        return self.config.to_dict()

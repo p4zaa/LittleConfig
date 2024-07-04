@@ -1,0 +1,30 @@
+_version_: prefix_0.0_suffix
+datasets:
+  test_paths:
+  - "LittleConfig\test\\memory_buffer\test1\test-datasets\file1.csv"
+  - "LittleConfig\test\\memory_buffer\test1\test-datasets\file2.csv"
+  train_paths:
+  - "LittleConfig\test\\memory_buffer\test1\train-datasets\file1.csv"
+  - "LittleConfig\test\\memory_buffer\test1\train-datasets\file2.csv"
+  - "LittleConfig\test\\memory_buffer\test1\train-datasets\file3.csv"
+  validation_paths: null
+defaults:
+- model: !!python/object:LittleConfig.Config
+    _config_dict:
+      attention_masks: true
+      input_ids: true
+      model_name: airesearch/wangchanberta-base-att-spm-uncased
+      token_type: false
+      tokenizer: !!python/object:LittleConfig.Config
+        _config_dict:
+          _class: AutoTokenizer
+          pretrain: airesearch/wangchanberta-base-att-spm-uncased
+- label:
+  - label1
+  - label2
+  - label3
+  - label4
+  - label5
+  - label6
+  - label7
+  - label8

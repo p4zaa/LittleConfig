@@ -1,0 +1,6 @@
+text,label1,label2,label3,label4
+This is a sample text,1,0,1,0
+Here's another example,0,1,0,1
+Weather today is pleasant,1,0,0,1
+This data is for demonstration,0,1,1,0
+Can you analyze this text?,1,0,1,1

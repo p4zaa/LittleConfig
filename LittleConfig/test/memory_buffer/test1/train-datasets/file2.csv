@@ -1,0 +1,31 @@
+text,label1,label2,label3,label4,label5,label6
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",1,0,0,1,0,1
+"Vivamus lacinia odio vitae vestibulum vestibulum.",0,1,0,0,1,0
+"Cras vel ligula ultricies, interdum nisi et, tristique nulla.",1,1,1,0,0,1
+"Donec ac libero eget sapien facilisis bibendum.",0,0,0,1,1,0
+"Fusce tempor turpis eu felis pharetra, in lacinia ligula dictum.",1,0,1,0,0,1
+"Aliquam erat volutpat. In semper feugiat neque, nec ultricies risus.",0,1,0,1,1,0
+"Nullam porta sem vitae justo vehicula, ut bibendum felis fermentum.",1,0,1,1,0,1
+"Pellentesque habitant morbi tristique senectus et netus et malesuada.",0,1,1,0,1,0
+"In ac urna ac felis suscipit auctor.",1,1,0,0,0,1
+"Vestibulum ante ipsum primis in faucibus orci luctus et ultrices.",0,0,1,1,1,0
+"Curabitur nec lorem et libero dapibus pulvinar.",1,0,0,1,0,1
+"Aenean sit amet ligula in orci interdum tristique.",0,1,0,0,1,0
+"Quisque nec eros nec sapien condimentum malesuada.",1,1,1,0,0,1
+"Proin ut odio ac mi tincidunt facilisis.",0,0,0,1,1,0
+"Nam venenatis magna eu justo facilisis, ut gravida purus dignissim.",1,0,1,0,0,1
+"Phasellus in lacus at elit egestas consectetur.",0,1,0,1,1,0
+"Etiam convallis lacus ut ex fermentum, at fringilla orci gravida.",1,0,1,1,0,1
+"Integer auctor purus vel erat ultricies, id volutpat arcu faucibus.",0,1,1,0,1,0
+"Maecenas sit amet massa a tortor condimentum vulputate.",1,1,0,0,0,1
+"Pellentesque ac orci a nisl commodo volutpat.",0,0,1,1,1,0
+"Sed venenatis enim ut tellus scelerisque, non gravida libero malesuada.",1,0,0,1,0,1
+"Mauris ut ex ac augue luctus facilisis.",0,1,0,0,1,0
+"Curabitur non mauris vitae velit facilisis tincidunt.",1,1,1,0,0,1
+"Fusce ut eros a lacus mollis bibendum.",0,0,0,1,1,0
+"Nam fermentum orci non orci dapibus, ut venenatis felis venenatis.",1,0,1,0,0,1
+"Aliquam sit amet dui at dui accumsan convallis.",0,1,0,1,1,0
+"Proin interdum dui ut lacus vehicula, nec egestas magna congue.",1,0,1,1,0,1
+"Vivamus tincidunt libero et lacus tincidunt, nec sollicitudin ligula vehicula.",0,1,1,0,1,0
+"Donec quis arcu ut ligula convallis luctus.",1,1,0,0,0,1
+"Curabitur nec augue non tortor luctus convallis.",0,0,1,1,1,0

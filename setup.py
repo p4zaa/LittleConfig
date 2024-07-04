@@ -7,7 +7,7 @@ requirements = [
     'pyyaml'
 ]
 
-setuptools.setup(
+setup(
     name='LittleConfig',
     version='0.1',
     author='p4zaa',

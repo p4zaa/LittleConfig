@@ -1,9 +1,9 @@
-import setuptools
+from setuptools import setup, find_packages
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
-requires = [
+requirements = [
     'pyyaml'
 ]
 
@@ -20,6 +20,6 @@ setuptools.setup(
         "Bug Tracker": "https://github.com/p4zaa/LittleConfig/issues"
     },
     license='MIT',
-    packages=['LittleConfig'],
-    install_requires=requires,
+    packages=find_packages(),
+    install_requires=requirements,
 )

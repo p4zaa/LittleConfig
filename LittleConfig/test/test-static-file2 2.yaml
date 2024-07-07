@@ -1,0 +1,7 @@
+_id: 'LITTLEBAZOO'
+
+defaults:
+  - labels: test1/labels
+  - memory_replay: test1-replay-path
+
+version: test1_1

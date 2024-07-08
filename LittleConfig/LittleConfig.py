@@ -53,6 +53,9 @@ class Config:
             return obj
         return unwrap(self._config_dict)
 
+    def get(self, key, default=None):
+        return self._config_dict.get(key, default)
+
 class LittleConfig:
     def __init__(self, initial_path=None, config_path=None, config_name=None, overrides=None, partial_overrides=None) -> None:
         self.initial_path = Path(initial_path) if initial_path else Path.cwd()

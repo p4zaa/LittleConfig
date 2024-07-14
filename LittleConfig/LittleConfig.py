@@ -86,7 +86,7 @@ class LittleConfig:
         return config
 
     def _apply_overrides(self, config, overrides):
-        config.update(overrides)
+        config.update(self._wrap_in_config(overrides))
         return config
     
     def _apply_partial_overrides(self, config, partial_overrides):

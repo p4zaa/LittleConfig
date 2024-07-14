@@ -13,7 +13,7 @@ versioning_config:
   backup_version_config: True
   version_config_path: C:/Users/patom/OneDrive/Documents/Repo/LittleConfig/LittleConfig/test/version-configs
 
-project_config:
+project:
   name: ml-test1
   path: C:/Users/patom/OneDrive/Documents/Repo/LittleConfig/LittleConfig/test/projects
 

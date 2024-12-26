@@ -48,18 +48,37 @@ class Config:
         
     def recursive_update(self, other):
         """
-        Recursively updates a dictionary with values from another dictionary.
+        Recursively updates the internal dictionary (_config_dict) with values from another dictionary.
         Nested dictionaries are updated rather than replaced.
         
         :param other: The dictionary with updates.
-        :return: The updated dictionary.
+        :return: The updated dictionary (_config_dict).
         """
         for key, value in other.items():
-            if isinstance(value, dict) and key in self._config_dict and isinstance(self._config_dict[key], dict):
-                self.partial_update(self._config_dict[key], value)
+            if isinstance(value, dict) and key in self._config_dict:
+                # Recursively update the nested dictionary
+                self._config_dict[key] = self._recursive_update_nested(self._config_dict[key], value)
             else:
+                # Update or add the key-value pair directly
                 self._config_dict[key] = value
         return self._config_dict
+
+    def _recursive_update_nested(self, target, updates):
+        """
+        Helper method for recursively updating a nested dictionary.
+        
+        :param target: The original nested dictionary to be updated.
+        :param updates: The dictionary with updates.
+        :return: The updated nested dictionary.
+        """
+        for key, value in updates.items():
+            if isinstance(value, dict) and key in target and isinstance(target[key], dict):
+                # Continue recursion
+                target[key] = self.recursive_update_nested(target[key], value)
+            else:
+                # Update or add the key-value pair directly
+                target[key] = value
+        return target
 
     def to_dict(self):
         def unwrap(obj):

@@ -72,13 +72,16 @@ class Config:
         return self._config_dict.get(key, default)
 
 class LittleConfig:
-    def __init__(self, initial_path=None, config_path=None, config_name=None, overrides=None, partial_overrides=None) -> None:
+    def __init__(self, _dict: dict=None, initial_path=None, config_path=None, config_name=None, overrides=None, partial_overrides=None) -> None:
         self.initial_path = Path(initial_path) if initial_path else Path.cwd()
         self.config_path = Path(config_path) if config_path else Path.cwd()
         self.config_name = config_name
         self.overrides = overrides
         self.partial_overrides = partial_overrides
-        self._config = None
+        self._config = _dict
+
+        if self._config:
+            self._config = self._wrap_in_config(self._config)
 
     def _wrap_in_config(self, obj):
         if isinstance(obj, dict):
@@ -124,11 +127,12 @@ class LittleConfig:
 
     @cached_property
     def config(self):
-        yaml_path = Path(f'{self.initial_path}/{self.config_name}.yaml')
-        config_dict = self._load_yaml(yaml_path)
-        config_dict = self._load_defaults(config_dict)
-        config_dict = self._initialize_config(config_dict)
-        self._config = Config(config_dict)
+        if self._config is None:
+            yaml_path = Path(f'{self.initial_path}/{self.config_name}.yaml')
+            config_dict = self._load_yaml(yaml_path)
+            config_dict = self._load_defaults(config_dict)
+            config_dict = self._initialize_config(config_dict)
+            self._config = Config(config_dict)
         return self._config
     
     def to_dict(self):

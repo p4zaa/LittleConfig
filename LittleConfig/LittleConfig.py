@@ -55,7 +55,7 @@ class Config:
         :return: The updated dictionary (_config_dict).
         """
         for key, value in other.items():
-            if isinstance(value, dict) and key in self._config_dict:
+            if isinstance(value, (dict, Config)) and key in self._config_dict and isinstance(self._config_dict[key], (dict, Config)):
                 # Recursively update the nested dictionary
                 self._config_dict[key] = self._recursive_update_nested(self._config_dict[key], value)
             else:
@@ -72,9 +72,9 @@ class Config:
         :return: The updated nested dictionary.
         """
         for key, value in updates.items():
-            if isinstance(value, dict) and key in target and isinstance(target[key], dict):
+            if isinstance(value, (dict, Config)) and key in target and isinstance(target[key], (dict, Config)):
                 # Continue recursion
-                target[key] = self.recursive_update_nested(target[key], value)
+                target[key] = self._recursive_update_nested(target[key], value)
             else:
                 # Update or add the key-value pair directly
                 target[key] = value

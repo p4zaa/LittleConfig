@@ -46,6 +46,21 @@ class Config:
         else:
             raise ValueError("update() argument must be a dict or Config instance")
         
+    def recursive_update(self, other):
+        """
+        Recursively updates a dictionary with values from another dictionary.
+        Nested dictionaries are updated rather than replaced.
+        
+        :param other: The dictionary with updates.
+        :return: The updated dictionary.
+        """
+        for key, value in other.items():
+            if isinstance(value, dict) and key in self._config_dict and isinstance(self._config_dict[key], dict):
+                self.partial_update(self._config_dict[key], value)
+            else:
+                self._config_dict[key] = value
+        return self._config_dict
+
     def to_dict(self):
         def unwrap(obj):
             if isinstance(obj, Config):
